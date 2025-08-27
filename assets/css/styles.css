@@ -5,6 +5,32 @@
     box-sizing: border-box;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-light);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 6px;
+    border: 2px solid var(--background-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--primary-dark), #D84315);
+}
+
+/* Firefox Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--background-light);
+}
+
 :root {
     --primary-color: #FF5722;
     --primary-dark: #E64A19;
@@ -84,7 +110,7 @@ p {
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--text-white);
     border: 2px solid var(--primary-color);
 }
 
@@ -116,7 +142,7 @@ p {
 }
 
 .nav-brand .logo {
-    height: 50px;
+    height: 80px;
     width: auto;
 }
 
@@ -174,7 +200,10 @@ p {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, rgba(255, 86, 34, 0.541) 0%, rgba(230, 73, 25, 0.61) 100%), url('../img/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,6 +228,9 @@ p {
     position: relative;
     z-index: 2;
     max-width: 800px;
+    opacity: 0;
+    transform: scale(0.95);
+    animation: heroSlideIn 1.2s ease-out 0.2s forwards;
 }
 
 .hero-title {
@@ -206,6 +238,9 @@ p {
     font-weight: 700;
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(50px);
+    animation: heroFadeInUp 1s ease-out 0.5s forwards;
 }
 
 .hero-subtitle {
@@ -215,6 +250,9 @@ p {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeInUp 1s ease-out 1s forwards;
 }
 
 .hero-buttons {
@@ -222,6 +260,32 @@ p {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFadeInUp 1s ease-out 1.5s forwards;
+}
+
+/* Hero Animations */
+@keyframes heroFadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes heroSlideIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 .hero-scroll {
@@ -230,7 +294,19 @@ p {
     left: 50%;
     transform: translateX(-50%);
     color: var(--text-white);
-    animation: bounce 2s infinite;
+    opacity: 0;
+    animation: heroFadeIn 1s ease-out 2s forwards, bounce 2s infinite 3s;
+}
+
+@keyframes heroFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
 }
 
 @keyframes bounce {
@@ -270,7 +346,27 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    align-items: start;
+}
+
+.about-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+.about-us-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    object-fit: cover;
 }
 
 .about-text {
@@ -280,6 +376,7 @@ section {
 .about-stats {
     display: grid;
     gap: 2rem;
+    grid-template-columns: 1fr;
 }
 
 .stat-item {
@@ -312,7 +409,7 @@ section {
 
 /* Mission & Vision */
 .mission-vision {
-    background-color: var(--background-white);
+    background-color: var(--primary-color);
 }
 
 .mv-grid {
@@ -324,34 +421,57 @@ section {
 .mv-item {
     text-align: center;
     padding: 3rem 2rem;
-    background-color: var(--background-light);
+    background-color: rgba(255, 255, 255, 0.219);
     border-radius: var(--border-radius);
     transition: var(--transition);
+    backdrop-filter: blur(10px);
 }
 
 .mv-item:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-medium);
+    background-color: rgba(255, 255, 255, 0.137);
 }
 
 .mv-icon {
-    color: var(--primary-color);
+    color: var(--text-white);
     margin-bottom: 1.5rem;
 }
 
 .mv-item h3 {
-    color: var(--text-dark);
+    color: var(--text-white);
     margin-bottom: 1rem;
 }
 
 .mv-item p {
     font-size: 1rem;
     line-height: 1.7;
+    color: var(--text-white);
 }
 
 /* Services Section */
 .services {
-    background-color: var(--background-light);
+    background-image: url('../img/services.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.781);
+    z-index: 1;
+}
+
+.services .container {
+    position: relative;
+    z-index: 2;
 }
 
 .services-grid {
@@ -393,7 +513,7 @@ section {
 
 /* Team Section */
 .team {
-    background-color: var(--background-white);
+    background-color: rgba(255, 86, 34, 0.205);
 }
 
 .team-grid {
@@ -416,11 +536,19 @@ section {
 }
 
 .member-photo {
-    height: 200px;
+    min-height: 200px;
     background: linear-gradient(135deg, var(--secondary-color), var(--secondary-dark));
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+
+.member-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
 }
 
 .photo-placeholder {
@@ -474,7 +602,27 @@ section {
 
 /* Contact Section */
 .contact {
-    background-color: var(--background-light);
+    background-image: url('../img/contact.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 1;
+}
+
+.contact .container {
+    position: relative;
+    z-index: 2;
 }
 
 .contact-content {
@@ -573,8 +721,8 @@ section {
 }
 
 .footer-logo {
-    height: 60px;
-    width: auto;
+    height: 120px;
+    width: 100px;
 }
 
 .footer-brand p {
@@ -737,6 +885,19 @@ section {
     }
     
     .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-left-column {
+        gap: 1.5rem;
+    }
+    
+    .about-stats {
         grid-template-columns: 1fr;
     }
     
@@ -940,8 +1101,31 @@ onal styles for JavaScript functionality */
     opacity: 1 !important;
 }
 
-/* Scroll to top button responsive */
+/* WhatsApp floating button animation */
+@keyframes whatsappPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+}
+
+/* Floating buttons responsive */
 @media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 85px !important;
+        right: 20px !important;
+        width: 55px !important;
+        height: 55px !important;
+    }
+    
     .scroll-to-top {
         bottom: 20px !important;
         right: 20px !important;
