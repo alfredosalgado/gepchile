@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditorías a Sistemas y Planes de Emergencias (ISO 22320) - GEP Chile</title>
+    <title>Productos - GEP Chile</title>
+    <meta name="description" content="Productos de seguridad y prevención de riesgos disponibles para cotización en GEP Chile.">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon_io/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -13,14 +16,16 @@
         <nav class="navbar">
             <div class="container">
                 <div class="nav-brand">
-                    <img src="assets/img/logo.png" alt="GEP Chile Logo" class="logo">
+                    <a href="index.html">
+                        <img src="assets/img/logo.png" alt="GEP Chile Logo" class="logo">
+                    </a>
                 </div>
                 <div class="nav-menu" id="nav-menu">
                     <ul class="nav-list">
                         <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
                         <li class="nav-item"><a href="index.html#nosotros" class="nav-link">Nosotros</a></li>
                         <li class="nav-item"><a href="index.html#servicios" class="nav-link">Servicios</a></li>
-                        <li class="nav-item"><a href="productos.html" class="nav-link">Productos</a></li>
+                        <li class="nav-item"><a href="productos.html" class="nav-link active">Productos</a></li>
                         <li class="nav-item"><a href="index.html#equipo" class="nav-link">Nuestro Equipo</a></li>
                         <li class="nav-item"><a href="index.html#contacto" class="nav-link">Contacto</a></li>
                     </ul>
@@ -34,38 +39,47 @@
         </nav>
     </header>
 
-    <!-- Service Detail Section -->
-    <section class="service-detail">
+    <!-- Hero Section -->
+    <section class="hero hero-secondary">
+        <div class="hero-overlay"></div>
         <div class="container">
-            <div class="service-detail-header">
-                <h1>Auditorías a Sistemas y Planes de Emergencias (ISO 22320)</h1>
-                <p class="service-subtitle">Evaluación integral de sistemas de gestión de emergencias</p>
-                <p class="service-intro">Proceso estructurado para mejorar la preparación y respuesta ante emergencias</p>
+            <div class="hero-content">
+                <h1 class="hero-title">Productos</h1>
+                <p class="hero-subtitle">Equipos y productos de seguridad para la prevención de riesgos y gestión de emergencias</p>
             </div>
-            
-            <div class="service-detail-body">
-                <div class="service-image">
-                    <img src="assets/img/servicios/auditorias.jpg" alt="Auditorías a Sistemas y Planes de Emergencias">
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <div class="container">
+            <div class="coming-soon-content">
+                <div class="coming-soon-icon">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
                 </div>
-                
-                <div class="service-description">
-                    <p>Una auditoría a sistemas de gestión de emergencias es un proceso estructurado que tiene como objetivo evaluar la eficacia, cumplimiento y mejora continua de los planes, procedimientos, recursos y estructuras organizativas destinados a enfrentar situaciones de emergencia dentro de una organización, empresa o institución.</p>
-                    
-                    <div class="service-benefits">
-                        <h3>🔍 Objetivos de una auditoría de gestión de emergencias:</h3>
-                        <ul class="benefits-list">
-                            <li>✅ Verificar el cumplimiento legal y normativo (leyes nacionales, normas ISO como la 22320 o 45001)</li>
-                            <li>✅ Evaluar la implementación y eficacia de los planes de emergencia y continuidad operativa</li>
-                            <li>✅ Detectar debilidades, amenazas y oportunidades de mejora en la preparación y respuesta ante emergencias</li>
-                            <li>✅ Asegurar la capacitación del personal y la existencia de simulacros regulares</li>
-                            <li>✅ Confirmar la operatividad de equipos e infraestructura crítica (extintores, señalética, rutas de evacuación, sistemas contra incendio, etc.)</li>
-                        </ul>
+                <h2>Próximamente Disponible</h2>
+                <p>Estamos preparando nuestro catálogo de productos de seguridad y prevención de riesgos. Muy pronto podrás encontrar aquí una amplia gama de equipos y materiales para la gestión de emergencias.</p>
+                <div class="features-preview">
+                    <div class="feature-item">
+                        <h3>Equipos de Emergencia</h3>
+                        <p>Extintores, sistemas de detección y alarmas</p>
                     </div>
-                    
-                    <div class="service-cta">
-                        <p><strong>Asegura el cumplimiento normativo y mejora continua de tus sistemas de emergencia.</strong></p>
-                        <a href="index.html#contacto" class="btn btn-primary">Solicitar Cotización</a>
+                    <div class="feature-item">
+                        <h3>Señalética de Seguridad</h3>
+                        <p>Señales de evacuación y emergencia</p>
                     </div>
+                    <div class="feature-item">
+                        <h3>Elementos de Protección</h3>
+                        <p>EPP y equipos de seguridad personal</p>
+                    </div>
+                </div>
+                <div class="cta-section">
+                    <p>¿Necesitas cotizar algún producto específico?</p>
+                    <a href="index.html#contacto" class="btn btn-primary">Contáctanos</a>
                 </div>
             </div>
         </div>
@@ -76,19 +90,19 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/img/logo.png" alt="GEP Chile Logo" class="footer-logo">
+                <img src="assets/img/logo.png" alt="GEP Chile Logo" class="footer-logo">
                     <p>Prevención hoy, seguridad siempre</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-section">
                         <h4>Servicios</h4>
                         <ul>
-                            <li><a href="index.html#servicios">Planes de Evacuación y Emergencias</a></li>
-                            <li><a href="index.html#servicios">Gestión de Emergencias e Inspección de sistemas contra Incendios</a></li>
-                            <li><a href="index.html#servicios">Señaléticas de Evacuación y Emergencias</a></li>
-                            <li><a href="index.html#servicios">Auditorías</a></li>
-                            <li><a href="index.html#servicios">Seguridad Vial</a></li>
-                            <li><a href="index.html#servicios">Simulacros</a></li>
+                            <li><a href="planes-evacuacion-emergencias.html">Planes de Evacuación y Emergencias</a></li>
+                            <li><a href="gestion-emergencias-inspecciones.html">Gestión de Emergencias e Inspección de sistemas contra Incendios</a></li>
+                            <li><a href="senaletica-evacuacion.html">Señaléticas de Evacuación y Emergencias</a></li>
+                            <li><a href="auditorias-emergencias.html">Auditorías</a></li>
+                            <li><a href="seguridad-vial.html">Seguridad Vial</a></li>
+                            <li><a href="simulacros-emergencias.html">Simulacros</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">

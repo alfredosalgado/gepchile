@@ -350,7 +350,7 @@ function showNotification(message, type = 'info') {
 function initScrollToTop() {
     // Create WhatsApp button
     const whatsappBtn = document.createElement('a');
-    whatsappBtn.href = 'https://wa.me/56912345678?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios';
+    whatsappBtn.href = 'https://wa.me/56967278080?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios';
     whatsappBtn.target = '_blank';
     whatsappBtn.rel = 'noopener noreferrer';
     whatsappBtn.innerHTML = `
