@@ -190,6 +190,25 @@ function initContactForm() {
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
+        // Check for URL parameters to pre-fill form
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceParam = urlParams.get('service');
+        const messageParam = urlParams.get('message');
+        
+        if (serviceParam) {
+            const serviceSelect = contactForm.querySelector('#service');
+            if (serviceSelect) {
+                serviceSelect.value = serviceParam;
+            }
+        }
+        
+        if (messageParam) {
+            const messageTextarea = contactForm.querySelector('#message');
+            if (messageTextarea) {
+                messageTextarea.value = decodeURIComponent(messageParam);
+            }
+        }
+        
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
