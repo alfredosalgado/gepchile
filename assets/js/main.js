@@ -6,19 +6,70 @@ document.addEventListener('DOMContentLoaded', function() {
     initContactForm();
     initSmoothScrolling();
     initScrollToTop();
+    initTeamParallax();
 });
+
+// Team parallax effect
+const initTeamParallax = () => {
+    const teamImage = document.querySelector('.team-photo');
+    const teamSection = document.querySelector('.team');
+    
+    if (!teamImage || !teamSection) return;
+    
+    // Only enable parallax on desktop devices
+    if (window.innerWidth < 768) return;
+    
+    const handleScroll = () => {
+        const rect = teamSection.getBoundingClientRect();
+        const sectionHeight = teamSection.offsetHeight;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate if section is in viewport
+        if (rect.top < windowHeight && rect.bottom > 0) {
+            // Calculate scroll progress within the section
+            const scrollProgress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+            const translateY = (scrollProgress - 0.5) * 30; // Reduced intensity for smoother effect
+            
+            teamImage.style.transform = `translateY(${translateY}px)`;
+        }
+    };
+    
+    // Throttle scroll events for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+    
+    window.addEventListener('scroll', throttledScroll);
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth < 768) {
+            teamImage.style.transform = 'translateY(0)';
+            window.removeEventListener('scroll', throttledScroll);
+        }
+    });
+}
 
 // Navigation functionality
 function initNavigation() {
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
     // Toggle mobile menu
-    navToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        navToggle.classList.toggle('active');
-    });
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
 
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
